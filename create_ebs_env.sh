@@ -10,7 +10,7 @@ fail() {
     exit 1
 }
 
-export AWS_DEFAULT_REGION=${AWS_REGION:-us-east-1}
+export AWS_DEFAULT_REGION=${AWS_REGION:ap-south-1}
 
 datetag=$(date +%Y%m%d%H%M)
 identifier=$(whoami)ivcr$datetag
