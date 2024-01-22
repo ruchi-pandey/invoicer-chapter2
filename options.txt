@@ -1,0 +1,7 @@
+[
+    {
+        "Namespace": "aws:autoscaling:launchconfiguration",
+        "OptionName": "cloudservices-aws-dev",
+        "Value": "aws-elasticbeanstalk-ec2-role"
+    }
+]

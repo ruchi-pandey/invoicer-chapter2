@@ -28,11 +28,11 @@
         "Namespace": "aws:elasticbeanstalk:application:environment", 
         "OptionName": "INVOICER_POSTGRES_SSLMODE", 
         "Value": "disable"
-    }
+    },
 
     {
         "Namespace": "aws:autoscaling:launchconfiguration", 
-        "OptionName": "IamInstanceProfile", 
+        "OptionName": "cloudservices-aws-dev", 
         "Value": "aws-elasticbeanstalk-ec2-role"
     }
 ]

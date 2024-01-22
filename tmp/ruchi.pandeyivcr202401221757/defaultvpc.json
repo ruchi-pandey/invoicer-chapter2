@@ -1,0 +1,28 @@
+{
+    "Vpcs": [
+        {
+            "CidrBlock": "172.31.0.0/16",
+            "DhcpOptionsId": "dopt-e0483689",
+            "State": "available",
+            "VpcId": "vpc-0263096b",
+            "OwnerId": "683776635234",
+            "InstanceTenancy": "default",
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-26fc494f",
+                    "CidrBlock": "172.31.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": true,
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "Sectona VPC"
+                }
+            ]
+        }
+    ]
+}

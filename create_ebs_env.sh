@@ -33,20 +33,20 @@ echo "DB security group is $dbsg"
 
 # Create the database
 dbinstclass="db.t2.micro"
-dbstorage=5
+dbstorage=int(5)
 dbpass=$(dd if=/dev/urandom bs=128 count=1 2>/dev/null| tr -dc _A-Z-a-z-0-9)
 aws rds create-db-instance \
     --db-name invoicer \
-    --db-instance-identifier "$identifier" \
-    --vpc-security-group-ids "$dbsg" \
-    --allocated-storage "$dbstorage" \
-    --db-instance-class "$dbinstclass" \
+    --db-instance-identifier "identifier" \
+    --vpc-security-group-ids "dbsg" \
+    --allocated-storage "dbstorage" \
+    --db-instance-class "dbinstclass" \
     --engine postgres \
     --engine-version 9.6.2 \
     --auto-minor-version-upgrade \
     --publicly-accessible \
     --master-username invoicer \
-    --master-user-password "$dbpass" \
+    --master-user-password "dbpass" \
     --no-multi-az > tmp/$identifier/rds.json || fail
 echo "RDS Postgres database is being created. username=invoicer; password='$dbpass'"
 
