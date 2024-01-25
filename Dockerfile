@@ -7,7 +7,7 @@ RUN adduser --gid 10001 --uid 10001 \
 RUN mkdir /app/statics/
 ADD statics /app/statics/
 
-COPY /bin/invoicer /app/invoicer
+COPY C:/Users/ruchi.pandey/go/bin/invoicer.exe /app/invoicer
 USER app
 EXPOSE 8080
 WORKDIR /app
