@@ -7,7 +7,8 @@ RUN adduser --gid 10001 --uid 10001 \
 RUN mkdir /app/statics/
 ADD statics /app/statics/
 
-COPY . /app/invoicer
+COPY [".", "/app/invoicer"]
+RUN chmod +x /app/invoicer
 USER app
 EXPOSE 8080
 WORKDIR /app
