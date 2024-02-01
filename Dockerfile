@@ -7,9 +7,10 @@ RUN adduser --gid 10001 --uid 10001 \
 RUN mkdir /app/statics/
 ADD statics /app/statics/
 
-COPY [".", "/app/invoicer"]
-RUN chmod +x /app/invoicer
+ADD . C:/Users/ruchi.pandey/Desktop/testing/Go/src/github.com/ruchi-pandey/invoicer
+RUN go install github.com/ruchi-pandey/invoicer-chapter2/blob/master/invoicer.exe@latest
+
 USER app
 EXPOSE 8080
 WORKDIR /app
-ENTRYPOINT /app/invoicer
+ENTRYPOINT /go/bin/invoicer
