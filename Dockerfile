@@ -8,9 +8,7 @@ RUN mkdir /app/statics/
 ADD statics /app/statics/
 
 COPY . /app/invoicer
-
-
 USER app
 EXPOSE 8080
 WORKDIR /app
-ENTRYPOINT ./go/bin/
+ENTRYPOINT ./go/bin/invoicer
