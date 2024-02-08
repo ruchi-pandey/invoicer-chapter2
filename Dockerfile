@@ -7,8 +7,8 @@ RUN adduser --gid 10001 --uid 10001 \
 RUN mkdir /app/statics/
 ADD statics /app/statics/
 
-ADD . C:/Users/ruchi.pandey/Desktop/testing/Go/src/github.com/ruchi-pandey/invoicer
-RUN go install github.com/ruchi-pandey/invoicer-chapter2/blob/master/invoicer.exe@latest
+COPY . /app/invoicer
+RUN chmod +x invoicer
 
 USER app
 EXPOSE 8080
