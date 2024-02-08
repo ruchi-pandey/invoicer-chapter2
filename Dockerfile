@@ -8,7 +8,7 @@ RUN mkdir /app/statics/
 ADD statics /app/statics/
 
 COPY . /app/invoicer
-RUN chmod +x invoicer
+
 
 USER app
 EXPOSE 8080
