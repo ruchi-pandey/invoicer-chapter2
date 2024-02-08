@@ -13,4 +13,4 @@ COPY . /app/invoicer
 USER app
 EXPOSE 8080
 WORKDIR /app
-ENTRYPOINT .
+ENTRYPOINT ./go/bin/invoicer
