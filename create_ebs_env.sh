@@ -43,7 +43,7 @@ aws rds create-db-instance \
     --db-instance-class "dbinstclass" \
     --engine postgres \
     --engine-version 9.6.2 \
-    --auto-minor-version-upgrade \
+    --auto-minor-version-upgrade \11
     --publicly-accessible \
     --master-username invoicer \
     --master-user-password "dbpass" \
