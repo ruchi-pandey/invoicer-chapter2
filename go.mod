@@ -1,6 +1,6 @@
-module example.com/m/v2
+module example.com/m
 
-go 1.21.5
+go 1.18
 
 require (
 	github.com/davecgh/go-spew v1.1.1-0.20170829195320-a47672248388
