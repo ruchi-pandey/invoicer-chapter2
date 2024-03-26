@@ -18,10 +18,11 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	_ "github.com/jinzhu/gorm/dialects/sqlite"
+	_ "github.com/jinzhu/gorm/dialects/sqlite" // Sqlite driver based on CGO
 	"github.com/wader/gormstore"
 	"go.mozilla.org/mozlog"
 	"gorm.io/driver/postgres"
+	"gorm.io/driver/sqlite" // Sqlite driver based on CGO
 	"gorm.io/gorm"
 )
 
@@ -42,23 +43,25 @@ func main() {
 		err error
 	)
 
-	connline := fmt.Sprintf("user=%s password=%s host=%s dbname=%s sslmode=%s",
-		os.Getenv("INVOICER_POSTGRES_USER"),
-		os.Getenv("INVOICER_POSTGRES_PASSWORD"),
-		os.Getenv("INVOICER_POSTGRES_HOST"),
-		os.Getenv("INVOICER_POSTGRES_PORT"),
-		os.Getenv("INVOICER_POSTGRES_DB"),
-		os.Getenv("INVOICER_POSTGRES_SSLMODE"),
-	)
-
 	var db *gorm.DB
+
 	if os.Getenv("INVOICER_USE_POSTGRES") != "" {
+
+		connline := fmt.Sprintf("user=%s password=%s host=%s dbname=%s sslmode=%s",
+			os.Getenv("INVOICER_POSTGRES_USER"),
+			os.Getenv("INVOICER_POSTGRES_PASSWORD"),
+			os.Getenv("INVOICER_POSTGRES_HOST"),
+			os.Getenv("INVOICER_POSTGRES_PORT"),
+			os.Getenv("INVOICER_POSTGRES_DB"),
+			os.Getenv("INVOICER_POSTGRES_SSLMODE"),
+		)
 		log.Println("Opening postgres connection")
-		db, err := gorm.Open(postgres.Open((connline)), &gorm.Config{})
+		db, err = gorm.Open(postgres.Open((connline)), &gorm.Config{})
 
 	} else {
 		log.Println("Opening sqlite connection")
-		db, err = gorm.Open("sqlite3", "invoicer.db")
+		//db, err = gorm.Open("sqlite3", "invoicer.db")
+		db, err = gorm.Open(sqlite.Open("invoicer.db"), &gorm.Config{})
 	}
 	if err != nil {
 		panic("failed to connect database")
