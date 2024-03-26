@@ -51,7 +51,6 @@ func main() {
 			os.Getenv("INVOICER_POSTGRES_USER"),
 			os.Getenv("INVOICER_POSTGRES_PASSWORD"),
 			os.Getenv("INVOICER_POSTGRES_HOST"),
-			os.Getenv("INVOICER_POSTGRES_PORT"),
 			os.Getenv("INVOICER_POSTGRES_DB"),
 			os.Getenv("INVOICER_POSTGRES_SSLMODE"),
 		)
